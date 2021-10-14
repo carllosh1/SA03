@@ -91,7 +91,7 @@
                 <td>
                     <label  for="dataCadastroConvenio">Data: </label>
                     
-                    <input type="text"  name="dataCadastroConvenio" id="dataCadastroConvenio" placeholder="dd/mm/aaaa"value="<?php if(isset($res)){echo $res['dataCadastro_convenio'];} ?>">
+                    <input type="date"  name="dataCadastroConvenio" id="dataCadastroConvenio" placeholder="dd/mm/aaaa"value="<?php if(isset($res)){echo $res['dataCadastro_convenio'];} ?>">
                 </td>  
                   
             </tr>

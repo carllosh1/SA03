@@ -2,8 +2,18 @@
    include 'conexao.php';
    include 'class.php';
    include 'crud.php';
+   require_once '../conexao.php';
    $crudProcedimento = new crudProcedimento();
     $classProcedimento = new classProcedimento();
+    $Conexao = new Conexao();
+
+    if(isset($_GET['codigo_procedimento']) && !empty($_GET['codigo_procedimento'])){
+        $codigo_procedimento = addslashes($_GET['codigo_procedimento']);
+
+        $sql = $Conexao->getCon()->query("SELECT * FROM tbl_procedimento WHERE codigo_procedimento = '$codigo_procedimento'");
+        $res = $sql->fetch(PDO::FETCH_ASSOC);
+    }  
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -43,7 +53,7 @@
                         <a href="../Especialidade/especialidade.php"> Especialidade</a>
                     </li>
                     <li class="navbar-item active">
-                        <a href="../Procedimentos/procedimentos.php"> Procedimento</a>
+                        <a href="procedimentos.php"> Procedimento</a>
                     </li>
                     <li class="navbar-item">
                         <a href="../Padroes/padroes.php"> Padrões</a>
@@ -66,7 +76,7 @@
                         <a href="../Especialidade/especialidade.php"> Especialidade</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="../Procedimentos/procedimentos.php"> Procedimento</a>
+                        <a href="procedimentos.php"> Procedimento</a>
                     </li>
                     <li class="navbar-item">
                         <a href="../Padroes/padroes.php"> Padrões</a>
@@ -90,7 +100,7 @@
                 
                 <td>
                     <label  for="dataCadastroProcedimento">Data: </label>
-                    <input type="date"  name="dataCadastroProcedimento" id="dataCadastroProcedimento" required="required" placeholder="dd/mm/aaaa">
+                    <input type="date"  name="dataCadastroProcedimento" id="dataCadastroProcedimento" value="<?php if(isset($res)){echo $res['dataCadastro_procedimento'];} ?>" required="required" placeholder="dd/mm/aaaa">
                 </td>  
                   
             </tr>
@@ -99,11 +109,11 @@
                 <tr>
                     <td>    
                         <label for="nomeProcedimento">Nome: </label>
-                        <input type="text" required="required" name="nomeProcedimento" placeholder="Nome do procedimento" id="nomeProcedimento">
+                        <input type="text" required="required" name="nomeProcedimento" placeholder="Nome do procedimento" id="nomeProcedimento" value="<?php   if(isset($res)){echo $res['nome_procedimento'];} ?>">
                     </td>
                     <td>    
                         <label for="codigoProcedimento">Cod: </label>
-                        <input type="text" required="required" name="codigoProcedimento" placeholder="Código procedimento" id="codigoProcedimento" style="display:flex;">
+                        <input type="text" required="required" name="codigoProcedimento" value="<?php   if(isset($res)){echo $res['codigo_procedimento'];} ?>" placeholder="Código procedimento" id="codigoProcedimento" style="display:flex;">
                     </td>
                     
                 </tr>   
@@ -116,7 +126,7 @@
                     <tr>
                         <td>
                             <label for="valorProcedimento">Valor:</label>
-                                <input type="text" placeholder="100.00"required="required" name="valorProcedimento" id="valorProcedimento">
+                                <input type="text" placeholder="R$100,00"required="required" value="<?php   if(isset($res)){echo $res['valor_procedimento'];} ?>"name="valorProcedimento" id="valorProcedimento">
                         </td>
                     </tr>
 
@@ -128,6 +138,7 @@
             <td>
                 <label for="generoProcedimento">Gênero: </label>
                 <select name="generoProcedimento" style="display:flex;" required="required" id="generoProcedimento">
+                <option   value="<?php   if(isset($res)){echo $res['genero_procedimento'];} ?>"><?php   if(isset($res)){echo $res['genero_procedimento'];} ?> </option>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
                     <option value="Outros">Outros</option>
@@ -137,6 +148,8 @@
             <td>
                 <label for="exececaoProcedimentos">Exceção: </label>
                 <select name="exececaoProcedimentos" style="display:flex;" required="required" id="exececaoProcedimentos">
+                
+                <option   value="<?php   if(isset($res)){echo $res['exececao_procedimento'];} ?>"><?php   if(isset($res)){echo $res['exececao_procedimento'];} ?> </option>
                     <option value="Nenhuma">Nenhuma </option>
                     <option value="Problema A">Problema A</option>
                     <option value="Problema B">Problema B</option>
@@ -183,16 +196,27 @@
     </form>
     <?php
   
-        if (isset($_POST['save'])) {
-          $classProcedimento->setCod($_POST['codigoProcedimento']);
-          $classProcedimento->setNome($_POST['nomeProcedimento']);
-          $classProcedimento->setDate($_POST['dataCadastroProcedimento']);
-          $classProcedimento->setValor($_POST['valorProcedimento']);
-          $classProcedimento->setGenero($_POST['generoProcedimento']);
-          $classProcedimento->setExcessao($_POST['exececaoProcedimentos']);
-          $crudProcedimento->cadastrar($classProcedimento);
-        }
-        ?>
+        if( isset($_GET['codigo_procedimento'],$_POST['save']) && !empty($_GET['codigo_procedimento'])){
+            
+
+            $classProcedimento->setCod($_GET['codigo_procedimento']);
+            $classProcedimento->setNome($_POST['nomeProcedimento']);
+            $classProcedimento->setDate($_POST['dataCadastroProcedimento']);
+            $classProcedimento->setValor($_POST['valorProcedimento']);
+            $classProcedimento->setGenero($_POST['generoProcedimento']);
+            $classProcedimento->setExcessao($_POST['exececaoProcedimentos']);
+            $crudProcedimento->alterar($classProcedimento);
+
+            if (headers_sent()) {
+                die("O redirecionamento falhou. Por favor, clique neste link: <a href=index.php>aqui</a>");
+            }
+            else{
+                exit(header("Location: /user.php"));
+            }
+            
+        }   
+       
+    ?>
          
         
         

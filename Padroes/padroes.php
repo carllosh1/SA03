@@ -117,52 +117,52 @@
                 <td>
                
                     
-                        <span>Segunda:</span>
-                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" value="Segunda"name="checkValores[]">
+                        <label for="Segunda">Segunda:</label>
+                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" id="Segunda" value="Segunda"name="checkValores[]">
                     
                 </td>
                 <td>
                 
-                        <span>Terça:<span>
-                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" value="Terça"name="checkValores[]">
+                        <label for="Terca">Terça:<label>
+                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" id="Terca"value="Terça"name="checkValores[]">
              
                 </td>   
                 <td>
                 
-                        <span>Quarta:</span>
-                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" value="Quarta"name="checkValores[]">
+                        <label for="Quarta">Quarta:</label>
+                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" id="Quarta" value="Quarta"name="checkValores[]">
                   
                 </td> 
                 <td>
                    
-                        <span>Quinta:</span>
-                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" value="Quinta"name="checkValores[]">
+                        <label for="Quinta">Quinta:</label>
+                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" id="Quinta" value="Quinta"name="checkValores[]">
                     
                 </td> 
                 <td>
                    
-                        <span>Sexta:</span>
-                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" value="Sexta"name="checkValores[]">
+                        <label for="Sexta">Sexta:</label>
+                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" id="Sexta"value="Sexta"name="checkValores[]">
                  
                 </td> 
                 <td>
                     
                  
-                        <span>Sábado:</span>
-                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" value="Sábado"name="checkValores[]">
+                        <label for="Sabado">Sábado:</label>
+                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" id="Sabado"value="Sábado"name="checkValores[]">
                   
                 </td> 
                 <td>
                 
-                        <span>Domingo:</span>
-                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" value="Domingo"name="checkValores[]">
+                        <label for="Domingo">Domingo:</label>
+                        <input type="checkbox" class="filled-in" style="position:relative; left:1px; opacity:1;" id="Domingo" value="Domingo"name="checkValores[]">
                   
                 </td> 
             </tr>
               
                              
         </table>
-   <div class="row">
+        <div class="row">
                 <div class="col s4"> 
                     <button class="btn waves-effect waves-light" type="submit" name="save">Salvar
                         <i class="material-icons right">save</i>

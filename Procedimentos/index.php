@@ -1,27 +1,27 @@
 <?php
-    require_once '../conexao.php';
-    
-    if(isset($_GET['codigo_especialidade']) && !empty($_GET['codigo_especialidade'])){
-        $codigo_especialidade = addslashes($_GET['codigo_especialidade']);
-
-        $cmd = $con->query("SELECT * FROM tbl_especialidade WHERE codigo_especialidade = '$codigo_especialidade'");
-        $res = $cmd->fetch(PDO::FETCH_ASSOC);
-    }       
-        
+   include 'conexao.php';
+   include 'class.php';
+   include 'crud.php';
+   $crudProcedimento = new crudProcedimento();
+    $classProcedimento = new classProcedimento();
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
+    
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"/>
     <link rel="stylesheet" href="../style.css">
     <title>Clínica XYZ</title>
+    
 </head>
 <body>
-<nav>
+   
+    <nav>
         <div class="nav-wrapper deep-orange accent-1">
             <a href="../index.php" class="brand-logo">Clínica XYZ</a>
             <a href="../index.php" data-activates="menu-mobile" class="button-collapse">
@@ -34,7 +34,7 @@
                     <li class="navbar-item">
                         <a href="../Paciente/paciente.php"> Paciente</a>
                     </li>
-                    <li class="navbar-item ">
+                    <li class="navbar-item">
                         <a href="../Medico/medico.php"> Médico</a>
                     </li>
                     <li class="navbar-item">
@@ -43,15 +43,15 @@
                     <li class="navbar-item">
                         <a href="../Especialidade/especialidade.php"> Especialidade</a>
                     </li>
-                    <li class="navbar-item">
-                        <a href="../Procedimentos/procedimentos.php"> Procedimento</a>
-                    </li>
                     <li class="navbar-item active">
+                        <a href="procedimentos.php"> Procedimento</a>
+                    </li>
+                    <li class="navbar-item">
                         <a href="../Padroes/padroes.php"> Padrões</a>
                     </li>
             </ul>
             <ul class="side-nav" id="menu-mobile">
-                    <li class="navbar-item active">
+                    <li class="navbar-item ">
                         <a href="../index.php">Home</a>
                     </li>
                     <li class="navbar-item">
@@ -61,13 +61,13 @@
                         <a href="../Medico/medico.php"> Médico</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="../Convenio/Convenio.php"> Convênio</a>
+                        <a href="../Convenio/convenio.php"> Convênio</a>
                     </li>
                     <li class="navbar-item">
                         <a href="../Especialidade/especialidade.php"> Especialidade</a>
                     </li>
-                    <li class="navbar-item">
-                        <a href="../Procedimentos/procedimentos.php"> Procedimento</a>
+                    <li class="navbar-item active">
+                        <a href="procedimentos.php"> Procedimento</a>
                     </li>
                     <li class="navbar-item">
                         <a href="../Padroes/padroes.php"> Padrões</a>
@@ -76,47 +76,53 @@
         </div>
     </nav>
 
-    <form action="<?php echo 'update.php?codigo_especialidade='.$codigo_especialidade;?>" method="post">
+    <fieldset>
+ 
 
-            <fieldset class="margin-border">
-            
-            <h4 class="title">Atualizar Especialidade</h4>
-            <hr>
-            <table class="flex">      
-            <tr >    
-                <td>
-                    <label  for="dataCadastroEspecialidade">Data: </label>
-                    
-                    <input type="date"  name="dataCadastroEspecialidade" id="dataCadastroEspecialidade" placeholder="dd/mm/aaaa" value="<?php if(isset($res)){echo $res['dataCadastro_especialidade'];} ?>">
-                </td>   
-            </tr>
-        </table>  
-        <table>  
-            <tr>
-                <td>    
-                    <label for="nomeEspecialidade">Nome Especialidade: </label>
-                    <input type="text" name="nomeEspecialidade" id="nomeEspecialidade" value="<?php if(isset($res)){echo $res['nome_especialidade'];} ?>"> 
-        
-                </td>
-            </tr> 
-        </table>
+        <?php
+
+            require_once '../conexao.php';
+
+            $cmd = $con->query("SELECT * FROM tbl_procedimento ORDER BY codigo_procedimento");
+            $res = $cmd->fetchALL(PDO::FETCH_ASSOC);
+
+            foreach($res as $valor){
+                echo"<table>";
+                echo"<tr>";
+                    echo "  <th>Cod</th>";
+                    echo "  <th>Data Cadastro</th>";
+                    echo "  <th>Nome Procedimento</th>";
+                    echo "  <th>Valor Procedimento</th>";
+                    echo "  <th>Gênero Procedimento</th>";
+                    echo "  <th>Exceção Procedimento</th>";
+                   
+                echo"</tr>";
+                echo "<tr>";
+                
+                    echo "<td>".$valor['codigo_procedimento']."</td>";
+                    echo "<td>".$valor['dataCadastro_procedimento']."</td>";
+                    echo "<td>".$valor['nome_procedimento']."</td>";
+                    echo "<td>".$valor['valor_procedimento']."</td>";
+                    echo "<td>".$valor['genero_procedimento']."</td>";
+                    echo "<td>".$valor['exececao_procedimento']."</td>";
+                 
+               
+                    echo "<td><a href='deletar.php?codigo_procedimento=".$valor['codigo_procedimento']."' class='white-text text-darken-2 waves-effect waves-light btn-small red darken-3'>Excluir
+                    <i class='material-icons right'>delete_sweep</i></a> </td>";
+               
+                    echo "<td><a href='atualizar.php?codigo_procedimento=".$valor['codigo_procedimento']."' class='white-text text-darken-2 waves-effect waves-light  green darken-1 btn-small'>Atualizar
+                    <i class='material-icons right'>edit</i> </a> </td>";
+                
+                echo "</tr>";
+                
+
+                echo"</table>";
+            }
+        ?>
 
 
-            <div class="center">
-                        <button class="btn waves-effect waves-light" type="submit" name="save" value="Atualizar">Salvar
-                            <i class="material-icons right">save</i>
-                        </button>
-            
-                    </div>
-        
-            
-        
-        
-            </fieldset>
-        </form>
-    
-        
-        
+    </fieldset>
+
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <script>
