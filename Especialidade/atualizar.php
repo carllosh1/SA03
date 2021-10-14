@@ -23,54 +23,54 @@
 <body>
 <nav>
         <div class="nav-wrapper deep-orange accent-1">
-            <a href="../index.php" class="brand-logo">Clínica XYZ</a>
-            <a href="../index.php" data-activates="menu-mobile" class="button-collapse">
+            <a href="../index.html" class="brand-logo">Clínica XYZ</a>
+            <a href="../index.html" data-activates="menu-mobile" class="button-collapse">
                 <i class="material-icons">menu</i>
             </a>
             <ul class="right hide-on-med-and-down">
                 <li class="navbar-item ">
-                        <a href="../index.php">Home</a>
+                        <a href="../index.html">Home</a>
                 </li>
                     <li class="navbar-item">
-                        <a href="../Paciente/paciente.php"> Paciente</a>
+                        <a href="../Paciente/paciente.html"> Paciente</a>
                     </li>
                     <li class="navbar-item ">
-                        <a href="../Medico/medico.php"> Médico</a>
+                        <a href="../Medico/medico.html"> Médico</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="../Convenio/Convenio.php"> Convênio</a>
+                        <a href="../Convenio/Convenio.html"> Convênio</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="../Especialidade/especialidade.php"> Especialidade</a>
+                        <a href="../Especialidade/especialidade.html"> Especialidade</a>
                     </li>
                     <li class="navbar-item">
                         <a href="../Procedimentos/procedimentos.php"> Procedimento</a>
                     </li>
                     <li class="navbar-item active">
-                        <a href="../Padroes/padroes.php"> Padrões</a>
+                        <a href="../Padroes/padroes.html"> Padrões</a>
                     </li>
             </ul>
             <ul class="side-nav" id="menu-mobile">
                     <li class="navbar-item active">
-                        <a href="../index.php">Home</a>
+                        <a href="../index.html">Home</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="../Paciente/paciente.php"> Paciente</a>
+                        <a href="../Paciente/paciente.html"> Paciente</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="../Medico/medico.php"> Médico</a>
+                        <a href="../Medico/medico.html"> Médico</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="../Convenio/Convenio.php"> Convênio</a>
+                        <a href="../Convenio/Convenio.html"> Convênio</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="../Especialidade/especialidade.php"> Especialidade</a>
+                        <a href="../Especialidade/especialidade.html"> Especialidade</a>
                     </li>
                     <li class="navbar-item">
                         <a href="../Procedimentos/procedimentos.php"> Procedimento</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="../Padroes/padroes.php"> Padrões</a>
+                        <a href="../Padroes/padroes.html"> Padrões</a>
                     </li>
             </ul>
         </div>
