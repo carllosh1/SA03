@@ -53,7 +53,7 @@
                         <a href="../Especialidade/especialidade.html"> Especialidade</a>
                     </li>
                     <li class="navbar-item active">
-                        <a href="procedimentos.html"> Procedimento</a>
+                        <a href="procedimentos.php"> Procedimento</a>
                     </li>
                     <li class="navbar-item">
                         <a href="../Padroes/padroes.html"> Padrões</a>
@@ -76,7 +76,7 @@
                         <a href="../Especialidade/especialidade.html"> Especialidade</a>
                     </li>
                     <li class="navbar-item">
-                        <a href="procedimentos.html"> Procedimento</a>
+                        <a href="procedimentos.php"> Procedimento</a>
                     </li>
                     <li class="navbar-item">
                         <a href="../Padroes/padroes.html"> Padrões</a>
