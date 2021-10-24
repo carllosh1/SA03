@@ -116,7 +116,7 @@
                     <tr>
                         <td>
                             <label for="valorProcedimento">Valor:</label>
-                                <input type="text" placeholder="100.00"required="required" name="valorProcedimento" id="valorProcedimento">
+                                <input type="text"  placeholder="100.00"required="required" name="valorProcedimento" id="valorProcedimento">
                         </td>
                     </tr>
 

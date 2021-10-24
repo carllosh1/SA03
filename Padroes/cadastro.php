@@ -6,10 +6,10 @@ require_once '../conexao.php';
 
     if(isset($_POST['save'])){
      
-        $tempoPadrao = $_POST['tempoPadrao'];   
-        $inicioPadrao = $_POST['inicioPadrao'];
-        $finalPadrao = $_POST['finalPadrao'];
-        $valoresCheck = $_POST['checkValores'];
+        $tempoPadrao = addslashes($_POST['tempoPadrao']);   
+        $inicioPadrao = addslashes($_POST['inicioPadrao']);
+        $finalPadrao = addslashes($_POST['finalPadrao']);
+        $valoresCheck = addslashes($_POST['checkValores']);
         $dataCadastroPadrao = $_POST['dataCadastroPadrao'];
         
         $space = "";

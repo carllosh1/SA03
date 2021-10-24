@@ -3,8 +3,8 @@ require_once '../conexao.php';
 
 if(isset($_POST ['dataCadastroEspecialidade'], $_POST['nomeEspecialidade'])){
 
-    $dataCadastroEspecialidade = $_POST['dataCadastroEspecialidade'];
-    $nomeEspecialidade = $_POST['nomeEspecialidade'];
+    $dataCadastroEspecialidade = addslashes($_POST['dataCadastroEspecialidade']);
+    $nomeEspecialidade = addslashes($_POST['nomeEspecialidade']);
 
 }
 

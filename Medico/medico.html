@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"/>
     <link rel="stylesheet" href="../style.css">
     <title>Clínica XYZ</title>
-    <script type="text/javascript" src="validarCep.js"></script>
+    <script type="text/javascript" src="../js/validarCepMedico.js"></script>
     
 </head>
 <body>
@@ -95,7 +95,7 @@
             <tr>
                 <td>    
                     <label for="nomeMedico">Nome: </label>
-                    <input type="text" placeholder="Nome do Médico"  required="required" name="nomeMedico" id="nomeMedico">
+                    <input type="text" pattern="^[A-Z]+[a-zA-Z0-9'''\s-]*$"  placeholder="Nome do Médico"  required="required" name="nomeMedico" id="nomeMedico">
                 </td>
                 <td>  
                     <label for="crmMedico">CRM: </label>
@@ -117,7 +117,7 @@
                         </td>
                         <td>
                             <label for="ruaMedico">Rua:</label>
-                                <input type="text" placeholder="Rua"  required="required" name="ruaMedico" id="ruaMedico">
+                                <input type="text" pattern="^[A-Z]+[a-zA-Z0-9'''\s-]*$"  placeholder="Rua"  required="required" name="ruaMedico" id="ruaMedico">
                         </td>
                        
                     </tr>
@@ -131,18 +131,18 @@
                         </td>
                         <td>
                             <label for="complementoMedico">Complemento:</label>
-                            <input type="text" placeholder="Ex: Casa"  required="required" name="complementoMedico" id="complementoMedico">
+                            <input type="text" pattern="^[A-Z]+[a-zA-Z0-9'''\s-]*$" placeholder="Ex: Casa"  required="required" name="complementoMedico" id="complementoMedico">
                         </td>
                     </tr>    
                         
                     <tr>    
                         <td>
                             <label for="bairroMedico">Bairro:</label>
-                            <input type="text" placeholder="Nome do Bairro" required="required" name="bairroMedico" id="bairroMedico">
+                            <input type="text"  pattern="^[A-Z]+[a-zA-Z0-9'''\s-]*$" placeholder="Nome do Bairro" required="required" name="bairroMedico" id="bairroMedico">
                         </td>
                         <td>
                             <label for="lograduroMedico">Lograduro:</label>
-                            <input type="text" placeholder="Lograduro"  required="required" name="lograduroMedico" id="lograduroMedico">
+                            <input type="text" pattern="^[A-Z]+[a-zA-Z0-9'''\s-]*$"  placeholder="Lograduro"  required="required" name="lograduroMedico" id="lograduroMedico">
                         </td>
                        
                     </tr>   
@@ -155,17 +155,17 @@
 
                         <td>
                             <label for="telefoneFixoMedico">Telefone FIXO:</label>
-                            <input type="tel" placeholder="3123-3213"  required="required" name="telefoneFixoMedico" id="telefoneFixoMedico">
+                            <input type="tel" minlength="11" maxlength="14" pattern="^(\+\s?)?((?<!\+.*)\(\+?\d+([\s\-\.]?\d+)?\)|\d+)([\s\-\.]?(\(\d+([\s\-\.]?\d+)?\)|\d+))*(\s?(x|ext\.?)\s?\d+)?$" placeholder="3123-3213"  required="required" name="telefoneFixoMedico" id="telefoneFixoMedico">
                         </td>
                     </tr>   
                     <tr>   
                         <td>
                         <label for="celularMedico">Celular:</label>
-                        <input type="tel" placeholder="(dd)9xxxx-xxxx" required="required"  name="celularMedico" id="celularMedico">
+                        <input type="tel" minlength="11" maxlength="14" pattern="^(\+\s?)?((?<!\+.*)\(\+?\d+([\s\-\.]?\d+)?\)|\d+)([\s\-\.]?(\(\d+([\s\-\.]?\d+)?\)|\d+))*(\s?(x|ext\.?)\s?\d+)?$" placeholder="(dd)9xxxx-xxxx" required="required"  name="celularMedico" id="celularMedico">
                         </td>
                         <td>
                         <label for="telefoneMedico">Telefone Secundário:</label>
-                        <input type="tel" placeholder="(dd)9xxxx-xxxx" required="required" name="telefoneMedico" id="telefoneMedico">
+                        <input type="tel" minlength="11" maxlength="14" pattern="^(\+\s?)?((?<!\+.*)\(\+?\d+([\s\-\.]?\d+)?\)|\d+)([\s\-\.]?(\(\d+([\s\-\.]?\d+)?\)|\d+))*(\s?(x|ext\.?)\s?\d+)?$" placeholder="(dd)9xxxx-xxxx" required="required" name="telefoneMedico" id="telefoneMedico">
                         </td>
                     </tr>
                     
@@ -187,7 +187,7 @@
 
                 </div>
                 <div class="col s4">
-                    <a href="../index.php" class="btn waves-effect green accent-4">
+                    <a href="../index.html" class="btn waves-effect green accent-4">
                         Editar
                         <i class="material-icons right">edit</i>
                      </button>   

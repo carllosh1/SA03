@@ -78,7 +78,7 @@
                 <td>
                     <label  for="dataCadastroConvenio">Data: </label>
                     
-                    <input type="date" required="required" required="required" name="dataCadastroConvenio" id="dataCadastroConvenio" placeholder="dd/mm/aaaa">
+                    <input type="date" required="required" name="dataCadastroConvenio" id="dataCadastroConvenio" placeholder="dd/mm/aaaa">
                 </td>  
                   
             </tr>
@@ -106,7 +106,7 @@
                 </td>
                 <td>
                     <label for="emailConvenio">E-mail:</label>
-                    <input type="email" name="emailConvenio" id="emailConvenio" placeholder="email@email.com">
+                    <input type="email" name="emailConvenio" id="emailConvenio" required="required" placeholder="email@email.com">
                 </td>
             </tr>
             <tr>
@@ -124,17 +124,30 @@
             <tr>
                 <td>
                     <label for="telefone1Convenio">Telefone 1</label>
-                    <input type="tel" required="required" name="telefone1Convenio" id="telefone1Convenio" placeholder="(dd)9xxxx-xxxx">
+                    <input type="tel"   minlength="11" maxlength="14" pattern="^(\+\s?)?((?<!\+.*)\(\+?\d+([\s\-\.]?\d+)?\)|\d+)([\s\-\.]?(\(\d+([\s\-\.]?\d+)?\)|\d+))*(\s?(x|ext\.?)\s?\d+)?$"  required="required" name="telefone1Convenio" id="telefone1Convenio" placeholder="(dd)9xxxx-xxxx">
                 </td>
 
                 <td>
                     <label for="telefone2Convenio">Telefone 2</label>
-                    <input type="tel" required="required" name="telefone2Convenio" id="telefone2Convenio" placeholder="(dd)9xxxx-xxxx">
+                    <input type="tel" minlength="11" maxlength="14" pattern="^(\+\s?)?((?<!\+.*)\(\+?\d+([\s\-\.]?\d+)?\)|\d+)([\s\-\.]?(\(\d+([\s\-\.]?\d+)?\)|\d+))*(\s?(x|ext\.?)\s?\d+)?$"required="required" name="telefone2Convenio" id="telefone2Convenio" placeholder="(dd)9xxxx-xxxx">
                 </td>
             </tr>
         </table>      
                
-            
+            <script>
+                function celular($telefone){
+                $telefone= trim(str_replace('/', '', str_replace(' ', '', str_replace('-', '', str_replace(')', '', str_replace('(', '', $telefone))))));
+
+                $regexTelefone = "^[0-9]{11}$";
+
+                //$regexCel = '/[0-9]{2}[6789][0-9]{3,4}[0-9]{4}/'; // Regex para validar somente celular
+                if (preg_match($regexCel, $telefone)) {
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            </script>
                     
             <div class="row">
                 <div class="col s4"> 

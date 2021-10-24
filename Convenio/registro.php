@@ -4,15 +4,15 @@ require_once '../conexao.php';
 
     if(isset($_POST['save'])){
 
-        $dataCadastroConvenio = $_POST['dataCadastroConvenio'];
-        $nomeFantasiaConvenio = $_POST['nomeFantasiaConvenio'];
-        $CNPJConvenio = $_POST['CNPJConvenio'];   
-        $nomeEmpresaConvenio = $_POST['nomeEmpresaConvenio'];
-        $emailConvenio = $_POST['emailConvenio'];
-        $nomeContatoConvenio = $_POST['nomeContratoConvenio'];
-        $homePageConvenio = $_POST['homePageConvenio'];
-        $telefone1Convenio = $_POST['telefone1Convenio'];
-        $telefone2Convenio = $_POST['telefone2Convenio'];
+        $dataCadastroConvenio = addslashes($_POST['dataCadastroConvenio']);
+        $nomeFantasiaConvenio = addslashes($_POST['nomeFantasiaConvenio']);
+        $CNPJConvenio = addslashes($_POST['CNPJConvenio']);   
+        $nomeEmpresaConvenio = addslashes($_POST['nomeEmpresaConvenio']);
+        $emailConvenio = addslashes($_POST['emailConvenio']);
+        $nomeContatoConvenio = addslashes($_POST['nomeContratoConvenio']);
+        $homePageConvenio = addslashes($_POST['homePageConvenio']);
+        $telefone1Convenio = addslashes($_POST['telefone1Convenio']);
+        $telefone2Convenio = addslashes($_POST['telefone2Convenio']);
   
    
         
@@ -31,4 +31,4 @@ require_once '../conexao.php';
     // echo $dataCadastroConvenio ."1- " . $CNPJConvenio ."2- ". $nomeFantasiaConvenio ."3- ". $nomeEmpresaConvenio ."4- ".  $emailConvenio."5- " . $homePageConvenio ."6- ".  $telefone1Convenio ."7- ".$telefone2Convenio;
     } 
     header("location: convenio.php");
-?>
+?>()
